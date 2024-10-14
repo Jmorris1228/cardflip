@@ -23,10 +23,11 @@ class GameProvider extends ChangeNotifier {
   // Initialize cards with shuffled pairs
   void _initializeCards() {
     List<String> images = [
-      'assets/image/image1.png', 'assets/images/image2.png', 'assets/images/image3.png', 'assets/images/image4.png', 
-      'assets/image/image1.png',
-      'assets/images/back.png',
-     //
+      'C:/Users/jmorr/OneDrive/Desktop/repo/cardgame/cardd/lib/assets/images/image1.png,', 
+      'C:/Users/jmorr/OneDrive/Desktop/repo/cardgame/cardd/lib/assets/images/image2.png',
+      'C:/Users/jmorr/OneDrive/Desktop/repo/cardgame/cardd/lib/assets/images/image3.png',
+      'C:/Users/jmorr/OneDrive/Desktop/repo/cardgame/cardd/lib/assets/images/image4.png'
+,
     ];
     images.shuffle(); // Shuffle cards
     cards = images.map((image) => CardModel(imageAsset: image)).toList();
@@ -130,7 +131,7 @@ class CardWidget extends StatelessWidget {
         transform: Matrix4.rotationY(card.isFaceUp ? 0 : pi), // Flip animation
         child: card.isFaceUp || card.isMatched
             ? Image.asset(card.imageAsset) // Show front image if face-up or matched
-            : Image.asset('assets/back.image.png'), // Show back design when face-down
+            : Image.asset('C:/Users/jmorr/OneDrive/Desktop/repo/cardgame/cardd/lib/assets/images/back.png'), // Show back design when face-down
       ),
     );
   }
