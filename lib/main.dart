@@ -23,8 +23,10 @@ class GameProvider extends ChangeNotifier {
   // Initialize cards with shuffled pairs
   void _initializeCards() {
     List<String> images = [
-      'assets/image1.png', 'assets/image2.png', 'assets/image3.png', 'assets/image4.png',
+      'assets/image1.png', 'assets/image2.png', 'assets/image3.png', 'assets/image4.png', 
       'assets/image1.png', 'assets/image2.png', 'assets/image3.png', 'assets/image4.png'
+      'assets/back.png',
+      'assets/back.png',
     ];
     images.shuffle(); // Shuffle the cards
     cards = images.map((image) => CardModel(imageAsset: image)).toList();
