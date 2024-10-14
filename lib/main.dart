@@ -23,16 +23,16 @@ class GameProvider extends ChangeNotifier {
   // Initialize cards with shuffled pairs
   void _initializeCards() {
     List<String> images = [
-      'assets/image1.png', 'assets/image2.png', 'assets/image3.png', 'assets/image4.png', 
-      'assets/image1.png', 'assets/image2.png', 'assets/image3.png', 'assets/image4.png'
-      'assets/back.png',
-      'assets/back.png',
+      'assets/image/image1.png', 'assets/images/image2.png', 'assets/images/image3.png', 'assets/images/image4.png', 
+      'assets/image/image1.png',
+      'assets/images/back.png',
+     //
     ];
-    images.shuffle(); // Shuffle the cards
+    images.shuffle(); // Shuffle cards
     cards = images.map((image) => CardModel(imageAsset: image)).toList();
   }
 
-  // Handle card flipping
+  // card flipping
   void flipCard(int index) {
     if (cards[index].isMatched || cards[index].isFaceUp) return;
 
@@ -50,7 +50,7 @@ class GameProvider extends ChangeNotifier {
         cards[index].isMatched = true;
       } else {
         // If they don't match, flip them back after a delay
-        Future.delayed(Duration(seconds: 1), () {
+        Future.delayed(const Duration(seconds: 1), () {
           cards[flippedIndex].isFaceUp = false;
           cards[index].isFaceUp = false;
           notifyListeners();
@@ -77,7 +77,7 @@ void main() {
   );
 }
 
-// Card Matching Game UI
+// Card Matching Game 
 class CardMatchingGame extends StatelessWidget {
   const CardMatchingGame({super.key});
 
@@ -130,7 +130,7 @@ class CardWidget extends StatelessWidget {
         transform: Matrix4.rotationY(card.isFaceUp ? 0 : pi), // Flip animation
         child: card.isFaceUp || card.isMatched
             ? Image.asset(card.imageAsset) // Show front image if face-up or matched
-            : Image.asset('assets/back_image.png'), // Show back design when face-down
+            : Image.asset('assets/back.image.png'), // Show back design when face-down
       ),
     );
   }

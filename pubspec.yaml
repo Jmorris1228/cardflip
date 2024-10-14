@@ -17,11 +17,9 @@ dev_dependencies:
   flutter_lints: ^4.0.0
 
 flutter:
-  uses-material-design: true
-
   assets: 
-    - assets/images/image1.png
-    - assets/images/image2.png
-    - assets/images/image3.png
-    - assets/images/image4.png
-    - assets/images/back.png
+    - C:/Users/jmorr/OneDrive/Desktop/repo/cardgame/cardd/lib/assets/images/image1.png
+    - C:/Users/jmorr/OneDrive/Desktop/repo/cardgame/cardd/lib/assets/images/image2.png
+    - C:/Users/jmorr/OneDrive/Desktop/repo/cardgame/cardd/lib/assets/images/image3.png
+    - C:/Users/jmorr/OneDrive/Desktop/repo/cardgame/cardd/lib/assets/images/image4.png
+    - C:/Users/jmorr/OneDrive/Desktop/repo/cardgame/cardd/lib/assets/images/back.png
