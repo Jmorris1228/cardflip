@@ -70,19 +70,21 @@ void main() {
   runApp(
     ChangeNotifierProvider(
       create: (context) => GameProvider(),
-      child: CardMatchingGame(),
+      child: const CardMatchingGame(),
     ),
   );
 }
 
 // Card Matching Game UI
 class CardMatchingGame extends StatelessWidget {
+  const CardMatchingGame({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(title: Text('Card Matching Game')),
-        body: GameGrid(),
+        appBar: AppBar(title: const Text('Card Matching Game')),
+        body: const GameGrid(),
       ),
     );
   }
@@ -90,12 +92,14 @@ class CardMatchingGame extends StatelessWidget {
 
 // Game Grid (UI)
 class GameGrid extends StatelessWidget {
+  const GameGrid({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Consumer<GameProvider>(
       builder: (context, gameProvider, child) {
         return GridView.builder(
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4),
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4),
           itemCount: gameProvider.cards.length,
           itemBuilder: (context, index) {
             return CardWidget(card: gameProvider.cards[index], onTap: () {
@@ -113,14 +117,14 @@ class CardWidget extends StatelessWidget {
   final CardModel card;
   final VoidCallback onTap;
 
-  CardWidget({required this.card, required this.onTap});
+  const CardWidget({super.key, required this.card, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: card.isFaceUp || card.isMatched ? null : onTap,
       child: AnimatedContainer(
-        duration: Duration(milliseconds: 500),
+        duration: const Duration(milliseconds: 500),
         transform: Matrix4.rotationY(card.isFaceUp ? 0 : pi), // Flip animation
         child: card.isFaceUp || card.isMatched
             ? Image.asset(card.imageAsset) // Show front image if face-up or matched
